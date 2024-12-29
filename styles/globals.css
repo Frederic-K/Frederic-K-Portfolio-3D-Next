@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Be aware : reserve classes from tailwind utility classes first*/
+
+/* Halftone css */
+@layer components {
+  .project-card {
+    background:
+      linear-gradient(#f99a00, #ac1a1a),
+      var(--image-url) 50% / cover;
+    background-blend-mode: color;
+  }
+
+  .project-card-halftone-effect {
+    grid-area: 1/1;
+    background:
+      radial-gradient(#fff, #888) 0 0/ 1em 1em,
+      radial-gradient(circle at 0, #fff, #000);
+    background-blend-mode: multiply;
+    filter: contrast(50) blur(2px) contrast(4);
+    mix-blend-mode: darken;
+  }
+
+  .project-card-content {
+    grid-area: 1/1;
+    mix-blend-mode: lighten;
+  }
+}
+
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+  .relief-text {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow-relief::after {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
